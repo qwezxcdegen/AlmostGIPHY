@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073E4D252A004D5800124D9F /* GifDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E4D242A004D5800124D9F /* GifDetailsViewController.swift */; };
+		073E4D292A00670F00124D9F /* UIActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E4D282A00670F00124D9F /* UIActivities.swift */; };
 		07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */; };
 		07B8CE7729FEEE1300AB2ABA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */; };
-		07B8CE7929FEEE1300AB2ABA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7829FEEE1300AB2ABA /* ViewController.swift */; };
+		07B8CE7929FEEE1300AB2ABA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */; };
 		07B8CE7C29FEEE1300AB2ABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8CE7A29FEEE1300AB2ABA /* Main.storyboard */; };
 		07B8CE7E29FEEE1400AB2ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07B8CE7D29FEEE1400AB2ABA /* Assets.xcassets */; };
 		07B8CE8129FEEE1400AB2ABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8CE7F29FEEE1400AB2ABA /* LaunchScreen.storyboard */; };
@@ -19,13 +21,16 @@
 		07B8CE9029FF0FEF00AB2ABA /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 07B8CE8F29FF0FEF00AB2ABA /* CHTCollectionViewWaterfallLayout */; };
 		07B8CE9329FF135C00AB2ABA /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 07B8CE9229FF135C00AB2ABA /* SwiftyGif */; };
 		07B8CE9529FF156B00AB2ABA /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE9429FF156B00AB2ABA /* GifCollectionViewCell.swift */; };
+		07B8CE9A2A0000BB00AB2ABA /* ShimmerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 07B8CE992A0000BB00AB2ABA /* ShimmerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		073E4D242A004D5800124D9F /* GifDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailsViewController.swift; sourceTree = "<group>"; };
+		073E4D282A00670F00124D9F /* UIActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivities.swift; sourceTree = "<group>"; };
 		07B8CE7129FEEE1300AB2ABA /* AlmostGIPHY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlmostGIPHY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		07B8CE7829FEEE1300AB2ABA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		07B8CE7B29FEEE1300AB2ABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07B8CE7D29FEEE1400AB2ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07B8CE8029FEEE1400AB2ABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B8CE9029FF0FEF00AB2ABA /* CHTCollectionViewWaterfallLayout in Frameworks */,
+				07B8CE9A2A0000BB00AB2ABA /* ShimmerSwift in Frameworks */,
 				07B8CE9329FF135C00AB2ABA /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +76,9 @@
 			children = (
 				07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */,
 				07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */,
-				07B8CE7829FEEE1300AB2ABA /* ViewController.swift */,
+				07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */,
+				073E4D242A004D5800124D9F /* GifDetailsViewController.swift */,
+				073E4D282A00670F00124D9F /* UIActivities.swift */,
 				07B8CE8A29FEFA2100AB2ABA /* NetworkManager.swift */,
 				07B8CE9429FF156B00AB2ABA /* GifCollectionViewCell.swift */,
 				07B8CE8C29FEFC1E00AB2ABA /* Gifs.swift */,
@@ -102,6 +110,7 @@
 			packageProductDependencies = (
 				07B8CE8F29FF0FEF00AB2ABA /* CHTCollectionViewWaterfallLayout */,
 				07B8CE9229FF135C00AB2ABA /* SwiftyGif */,
+				07B8CE992A0000BB00AB2ABA /* ShimmerSwift */,
 			);
 			productName = AlmostGIPHY;
 			productReference = 07B8CE7129FEEE1300AB2ABA /* AlmostGIPHY.app */;
@@ -134,6 +143,7 @@
 			packageReferences = (
 				07B8CE8E29FF0FEF00AB2ABA /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
 				07B8CE9129FF135C00AB2ABA /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				07B8CE982A0000BB00AB2ABA /* XCRemoteSwiftPackageReference "ShimmerSwift" */,
 			);
 			productRefGroup = 07B8CE7229FEEE1300AB2ABA /* Products */;
 			projectDirPath = "";
@@ -163,9 +173,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B8CE8929FEF54000AB2ABA /* GiphyResponseData.swift in Sources */,
-				07B8CE7929FEEE1300AB2ABA /* ViewController.swift in Sources */,
+				07B8CE7929FEEE1300AB2ABA /* MainViewController.swift in Sources */,
+				073E4D292A00670F00124D9F /* UIActivities.swift in Sources */,
 				07B8CE8B29FEFA2100AB2ABA /* NetworkManager.swift in Sources */,
 				07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */,
+				073E4D252A004D5800124D9F /* GifDetailsViewController.swift in Sources */,
 				07B8CE8D29FEFC1E00AB2ABA /* Gifs.swift in Sources */,
 				07B8CE7729FEEE1300AB2ABA /* SceneDelegate.swift in Sources */,
 				07B8CE9529FF156B00AB2ABA /* GifCollectionViewCell.swift in Sources */,
@@ -410,6 +422,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		07B8CE982A0000BB00AB2ABA /* XCRemoteSwiftPackageReference "ShimmerSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BeauNouvelle/ShimmerSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -422,6 +442,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 07B8CE9129FF135C00AB2ABA /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
+		};
+		07B8CE992A0000BB00AB2ABA /* ShimmerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07B8CE982A0000BB00AB2ABA /* XCRemoteSwiftPackageReference "ShimmerSwift" */;
+			productName = ShimmerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

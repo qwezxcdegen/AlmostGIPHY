@@ -12,7 +12,7 @@
         <!--Almost GIPHY-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AlmostGIPHY" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="AlmostGIPHY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,19 +34,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAc-mh-9Xh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yM5-kG-uA0">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yM5-kG-uA0" firstAttribute="leading" secondItem="QTB-iV-t2G" secondAttribute="leading" id="0EO-5V-Re1"/>
+                                                <constraint firstItem="WAc-mh-9Xh" firstAttribute="top" secondItem="QTB-iV-t2G" secondAttribute="top" id="7u9-f6-QNv"/>
+                                                <constraint firstAttribute="bottom" secondItem="WAc-mh-9Xh" secondAttribute="bottom" id="NYC-PS-Kic"/>
+                                                <constraint firstAttribute="trailing" secondItem="WAc-mh-9Xh" secondAttribute="trailing" id="TCo-8T-vno"/>
                                                 <constraint firstAttribute="bottom" secondItem="yM5-kG-uA0" secondAttribute="bottom" id="fja-zm-bBL"/>
                                                 <constraint firstItem="yM5-kG-uA0" firstAttribute="top" secondItem="QTB-iV-t2G" secondAttribute="top" id="gOB-Sa-H7f"/>
+                                                <constraint firstItem="WAc-mh-9Xh" firstAttribute="leading" secondItem="QTB-iV-t2G" secondAttribute="leading" id="jNp-gq-Ajn"/>
                                                 <constraint firstAttribute="trailing" secondItem="yM5-kG-uA0" secondAttribute="trailing" id="vXY-Cu-8vb"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="imageView" destination="yM5-kG-uA0" id="40M-x4-J69"/>
+                                            <outlet property="imageView" destination="yM5-kG-uA0" id="bBv-o2-4gp"/>
+                                            <outlet property="loaderView" destination="WAc-mh-9Xh" id="F6V-6L-Kqx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -64,11 +73,172 @@
                     <navigationItem key="navigationItem" title="Almost GIPHY" id="5nf-Bq-x5g"/>
                     <connections>
                         <outlet property="collectionView" destination="KO1-gg-e4A" id="NQw-lX-tdg"/>
+                        <segue destination="E1J-ja-DT5" kind="show" identifier="gifDetails" id="byg-U3-6L9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1043.5114503816794" y="3.5211267605633805"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="HbL-LO-jKa">
+            <objects>
+                <viewController id="E1J-ja-DT5" customClass="GifDetailsViewController" customModule="AlmostGIPHY" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FxM-fT-3RI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whF-ru-vD6">
+                                <rect key="frame" x="16" y="123" width="361" height="370"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mzP-Kt-gZc">
+                                <rect key="frame" x="20" y="573" width="353" height="205"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lTj-2u-aJm">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWz-ow-GeC">
+                                                <rect key="frame" x="0.0" y="0.0" width="45.333333333333336" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gWz-ow-GeC" secondAttribute="height" id="Arb-bK-iOb"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="imessage">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="68C-ek-0JU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLq-iO-LMz">
+                                                <rect key="frame" x="51.333333333333329" y="0.0" width="45.333333333333329" height="45"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="facebookMessenger">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="eC6-uJ-Fde"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBx-LU-Mb6">
+                                                <rect key="frame" x="102.66666666666667" y="0.0" width="45.333333333333329" height="45"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="snapchat">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="usw-dE-dSW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-2i-3Dt">
+                                                <rect key="frame" x="154" y="0.0" width="45" height="45"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="whatsapp">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="lmS-Yy-ott"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk8-Fv-8wK">
+                                                <rect key="frame" x="205" y="0.0" width="45.333333333333343" height="45"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="instagram">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="HXY-3J-UM6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xe-jP-qFo">
+                                                <rect key="frame" x="256.33333333333331" y="0.0" width="45.333333333333314" height="45"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="facebook">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="3TS-c0-dKU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-F5-dRb">
+                                                <rect key="frame" x="307.66666666666669" y="0.0" width="45.333333333333314" height="45"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="twitter">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="Q0o-mN-G3D"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rms-gF-rrk">
+                                        <rect key="frame" x="0.0" y="53" width="353" height="45.333333333333343"/>
+                                        <color key="backgroundColor" red="0.32927649342330784" green="0.29519473312513472" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Copy GIF Link">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="copyGifLinkPressed" destination="E1J-ja-DT5" eventType="touchUpInside" id="oBK-MP-JeW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNd-Fw-HCc">
+                                        <rect key="frame" x="0.0" y="106.33333333333336" width="353" height="45.333333333333329"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Copy GIF">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="copyGifPressed" destination="E1J-ja-DT5" eventType="touchUpInside" id="QrF-1s-tya"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m82-aE-OLV">
+                                        <rect key="frame" x="0.0" y="159.66666666666663" width="353" height="45.333333333333343"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Mxc-eQ-Kza" kind="unwind" unwindAction="unwindFor:" id="ofW-zd-R9D"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I1m-8D-AAQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mzP-Kt-gZc" firstAttribute="top" secondItem="whF-ru-vD6" secondAttribute="bottom" constant="80" id="GO2-0x-DJe"/>
+                            <constraint firstItem="whF-ru-vD6" firstAttribute="leading" secondItem="I1m-8D-AAQ" secondAttribute="leading" constant="16" id="Nqe-9v-Lbo"/>
+                            <constraint firstItem="I1m-8D-AAQ" firstAttribute="trailing" secondItem="mzP-Kt-gZc" secondAttribute="trailing" constant="20" id="WLy-0B-MUs"/>
+                            <constraint firstItem="I1m-8D-AAQ" firstAttribute="trailing" secondItem="whF-ru-vD6" secondAttribute="trailing" constant="16" id="aMF-3B-57w"/>
+                            <constraint firstItem="whF-ru-vD6" firstAttribute="top" secondItem="I1m-8D-AAQ" secondAttribute="top" constant="20" id="dr1-8A-ech"/>
+                            <constraint firstItem="mzP-Kt-gZc" firstAttribute="leading" secondItem="I1m-8D-AAQ" secondAttribute="leading" constant="20" id="sa7-B9-Sut"/>
+                            <constraint firstItem="I1m-8D-AAQ" firstAttribute="bottom" secondItem="mzP-Kt-gZc" secondAttribute="bottom" constant="40" id="vWN-0i-5Ah"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" style="editor" id="91V-VV-QcW">
+                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="T6d-yj-BmZ">
+                            <connections>
+                                <action selector="sharePressed:" destination="E1J-ja-DT5" id="vhD-mW-XJi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="whF-ru-vD6" id="eDa-C1-xAE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BV8-cI-VNT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Mxc-eQ-Kza" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2058.7786259541986" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DnM-Bk-2bo">
@@ -90,6 +260,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="facebook" width="480" height="480"/>
+        <image name="facebookMessenger" width="480" height="480"/>
+        <image name="imessage" width="480" height="480"/>
+        <image name="instagram" width="480" height="480"/>
+        <image name="snapchat" width="400" height="400"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="twitter" width="480" height="480"/>
+        <image name="whatsapp" width="480" height="480"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

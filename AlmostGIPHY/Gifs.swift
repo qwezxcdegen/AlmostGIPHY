@@ -12,7 +12,7 @@ struct Gifs {
     let gifs: [Gif]
     
     init?(giphyResponseData: GiphyResponseData) {
-        gifs = giphyResponseData.data.map { Gif(url: $0.images.fixedWidth.url, width: $0.images.fixedWidth.width, height: $0.images.fixedWidth.height) }
+        gifs = giphyResponseData.data.map { Gif(url: $0.images.fixedWidth.url, width: $0.images.fixedWidth.width, height: $0.images.fixedWidth.height, fullGifUrl: $0.images.original.url) }
     }
 }
 
@@ -20,6 +20,7 @@ struct Gif {
     let url: String?
     let width: String?
     let height: String?
+    let fullGifUrl: String?
 
     
     var widthInt: Int {
