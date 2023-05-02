@@ -9,29 +9,24 @@ import UIKit
 import SwiftyGif
 import ShimmerSwift
 
-class GifCollectionViewCell: UICollectionViewCell {
+final class GifCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var imageView: UIImageView!
+    // MARK: - IB Outlets
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var loaderView: UIView!
     
-    @IBOutlet var loaderView: UIView!
+    // MARK: - Private Properties
+    private var gifUrlSession: URLSessionDataTask?
+    private var shimmeringView: ShimmeringView?
     
-    var gifUrlSession: URLSessionDataTask?
-    
-    var shimmeringView: ShimmeringView?
-    
-    private func loadGifFrom(url: URL) {
-        imageView.clear()
+    // MARK: - Cell Lifecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
         gifUrlSession?.cancel()
-        gifUrlSession = imageView.setGifFromURL(url, showLoader: false)
+        shimmeringView?.contentView = UIView()
     }
     
-    private func getRandomColor() -> UIColor {
-        let red = CGFloat.random(in: 0...1)
-        let green = CGFloat.random(in: 0...1)
-        let blue = CGFloat.random(in: 0...1)
-        return UIColor(red: red, green: green, blue: blue, alpha: 1)
-    }
-    
+    // MARK: - Public Methods
     func configure(withData data: Gif) {
         guard let url = data.url, let url = URL(string: url) else { return }
         shimmeringView?.contentView = UIView()
@@ -50,11 +45,20 @@ class GifCollectionViewCell: UICollectionViewCell {
         
         loadGifFrom(url: url)
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
+}
+
+// MARK: - Private Methods
+private extension GifCollectionViewCell {
+    func loadGifFrom(url: URL) {
+        imageView.clear()
         gifUrlSession?.cancel()
-        shimmeringView?.contentView = UIView()
+        gifUrlSession = imageView.setGifFromURL(url, showLoader: false)
     }
     
+    func getRandomColor() -> UIColor {
+        let red = CGFloat.random(in: 0...1)
+        let green = CGFloat.random(in: 0...1)
+        let blue = CGFloat.random(in: 0...1)
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
 }

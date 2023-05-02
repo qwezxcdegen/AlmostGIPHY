@@ -10,43 +10,46 @@ import CHTCollectionViewWaterfallLayout
 
 class MainViewController: UIViewController {
     
-    @IBOutlet var collectionView: UICollectionView!
-    let networkManager = NetworkManager.shared
-    var gifs: [Gif] = []
-    var offset = -25
+    // MARK: - IB Outlets
+    @IBOutlet private var collectionView: UICollectionView!
+    
+    // MARK: - Private Properties
+    private let networkManager = NetworkManager.shared
+    private var gifs: [Gif] = []
+    private var offset = -25
+    private var snapshot = NSDiffableDataSourceSnapshot<String, Gif>()
+    
+    private lazy var dataSource = UICollectionViewDiffableDataSource<String, Gif>(collectionView: collectionView) { collectionView, indexPath, item in
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GifCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.configure(withData: item)
+        
+        return cell
+    }
+    
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
         collectionView.delegate = self
+        
+        snapshot.appendSections(["Gifs"])
+        dataSource.apply(snapshot)
+        
         let layout = CHTCollectionViewWaterfallLayout()
         layout.minimumColumnSpacing = 5
         layout.minimumInteritemSpacing = 5
-        
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         collectionView.collectionViewLayout = layout
-        fetchTrendingGifs(withReload: true)
+        
+        fetchTrendingGifs()
     }
     
+    // MARK: - IB Actions
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         
     }
     
-    func fetchTrendingGifs(withReload: Bool) {
-        offset += 25
-        if withReload {
-            networkManager.fetchTrendingGifsData(offset: offset) { [weak self] gifsData in
-                gifsData.gifs.forEach { self?.gifs.append($0) }
-                DispatchQueue.main.async {
-                    self?.collectionView.reloadData()
-                }
-            }
-        } else {
-            networkManager.fetchTrendingGifsData(offset: offset) { gifsData in
-                gifsData.gifs.forEach { self.gifs.append($0) }
-                
-            }
-        }
-    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? GifDetailsViewController else { return }
@@ -55,35 +58,17 @@ class MainViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension MainViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        gifs.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GifCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.configure(withData: gifs[indexPath.item])
-        
-        return cell
-    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "gifDetails", sender: gifs[indexPath.item])
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if gifs.count - indexPath.item == 17 {
-            self.fetchTrendingGifs(withReload: true)
+            fetchTrendingGifs()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "gifDetails", sender: gifs[indexPath.item])
     }
 }
 
@@ -98,5 +83,24 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
         let width = collectionViewLayout.collectionViewContentSize.width
         let height = Double(gifs[indexPath.item].heightInt) / Double(gifs[indexPath.item].widthInt) * Double(width)
         return CGSize(width: width, height: height)
+    }
+}
+
+// MARK: - Private Methods
+private extension MainViewController {
+    
+    func updateSnapshot() {
+        snapshot.appendItems(gifs)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+    
+    func fetchTrendingGifs() {
+        offset += 25
+        networkManager.fetchTrendingGifsData(offset: offset) { [weak self] gifsData in
+            gifsData.gifs.forEach { self?.gifs.append($0) }
+            DispatchQueue.main.async { [weak self] in
+                self?.updateSnapshot()
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ struct Gifs {
     }
 }
 
-struct Gif {
+struct Gif: Hashable {
     let url: String?
     let width: String?
     let height: String?
