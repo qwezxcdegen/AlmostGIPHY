@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -80,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="1043.5114503816794" y="3.5211267605633805"/>
         </scene>
-        <!--Details-->
+        <!--Gif Details View Controller-->
         <scene sceneID="HbL-LO-jKa">
             <objects>
                 <viewController id="E1J-ja-DT5" customClass="GifDetailsViewController" customModule="AlmostGIPHY" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,83 +90,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whF-ru-vD6">
-                                <rect key="frame" x="16" y="123" width="361" height="370"/>
+                                <rect key="frame" x="16" y="123" width="361" height="421"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mzP-Kt-gZc">
-                                <rect key="frame" x="20" y="573" width="353" height="205"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mzP-Kt-gZc">
+                                <rect key="frame" x="20" y="624" width="353" height="162"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lTj-2u-aJm">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="33"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWz-ow-GeC">
-                                                <rect key="frame" x="0.0" y="0.0" width="45.333333333333336" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="gWz-ow-GeC" secondAttribute="height" id="Arb-bK-iOb"/>
-                                                </constraints>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-F5-dRb">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="33"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="imessage">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="68C-ek-0JU"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLq-iO-LMz">
-                                                <rect key="frame" x="51.333333333333329" y="0.0" width="45.333333333333329" height="45"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="facebookMessenger">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="eC6-uJ-Fde"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBx-LU-Mb6">
-                                                <rect key="frame" x="102.66666666666667" y="0.0" width="45.333333333333329" height="45"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="snapchat">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="usw-dE-dSW"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-2i-3Dt">
-                                                <rect key="frame" x="154" y="0.0" width="45" height="45"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="whatsapp">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="lmS-Yy-ott"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk8-Fv-8wK">
-                                                <rect key="frame" x="205" y="0.0" width="45.333333333333343" height="45"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="instagram">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="HXY-3J-UM6"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xe-jP-qFo">
-                                                <rect key="frame" x="256.33333333333331" y="0.0" width="45.333333333333314" height="45"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="facebook">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="3TS-c0-dKU"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-F5-dRb">
-                                                <rect key="frame" x="307.66666666666669" y="0.0" width="45.333333333333314" height="45"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="twitter">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Share">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="socialNetworkPressed:" destination="E1J-ja-DT5" eventType="touchUpInside" id="Q0o-mN-G3D"/>
@@ -174,7 +113,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rms-gF-rrk">
-                                        <rect key="frame" x="0.0" y="53" width="353" height="45.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="43" width="353" height="33"/>
                                         <color key="backgroundColor" red="0.32927649342330784" green="0.29519473312513472" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -186,7 +125,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNd-Fw-HCc">
-                                        <rect key="frame" x="0.0" y="106.33333333333336" width="353" height="45.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="86" width="353" height="33"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -198,7 +137,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m82-aE-OLV">
-                                        <rect key="frame" x="0.0" y="159.66666666666663" width="353" height="45.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="129" width="353" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -221,16 +160,9 @@
                             <constraint firstItem="I1m-8D-AAQ" firstAttribute="trailing" secondItem="whF-ru-vD6" secondAttribute="trailing" constant="16" id="aMF-3B-57w"/>
                             <constraint firstItem="whF-ru-vD6" firstAttribute="top" secondItem="I1m-8D-AAQ" secondAttribute="top" constant="20" id="dr1-8A-ech"/>
                             <constraint firstItem="mzP-Kt-gZc" firstAttribute="leading" secondItem="I1m-8D-AAQ" secondAttribute="leading" constant="20" id="sa7-B9-Sut"/>
-                            <constraint firstItem="I1m-8D-AAQ" firstAttribute="bottom" secondItem="mzP-Kt-gZc" secondAttribute="bottom" constant="40" id="vWN-0i-5Ah"/>
+                            <constraint firstItem="I1m-8D-AAQ" firstAttribute="bottom" secondItem="mzP-Kt-gZc" secondAttribute="bottom" constant="32" id="vWN-0i-5Ah"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" style="editor" id="91V-VV-QcW">
-                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="T6d-yj-BmZ">
-                            <connections>
-                                <action selector="sharePressed:" destination="E1J-ja-DT5" id="vhD-mW-XJi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="whF-ru-vD6" id="eDa-C1-xAE"/>
                     </connections>
@@ -260,14 +192,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebook" width="480" height="480"/>
-        <image name="facebookMessenger" width="480" height="480"/>
-        <image name="imessage" width="480" height="480"/>
-        <image name="instagram" width="480" height="480"/>
-        <image name="snapchat" width="400" height="400"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="twitter" width="480" height="480"/>
-        <image name="whatsapp" width="480" height="480"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
