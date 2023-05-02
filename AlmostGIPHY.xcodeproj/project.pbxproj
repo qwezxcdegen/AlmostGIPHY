@@ -72,20 +72,76 @@
 		07B8CE7329FEEE1300AB2ABA /* AlmostGIPHY */ = {
 			isa = PBXGroup;
 			children = (
-				07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */,
-				07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */,
-				07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */,
-				073E4D242A004D5800124D9F /* GifDetailsViewController.swift */,
-				07B8CE8A29FEFA2100AB2ABA /* NetworkManager.swift */,
-				07B8CE9429FF156B00AB2ABA /* GifCollectionViewCell.swift */,
-				07B8CE8C29FEFC1E00AB2ABA /* Gifs.swift */,
-				07B8CE8829FEF54000AB2ABA /* GiphyResponseData.swift */,
-				07B8CE7A29FEEE1300AB2ABA /* Main.storyboard */,
-				07B8CE7D29FEEE1400AB2ABA /* Assets.xcassets */,
-				07B8CE7F29FEEE1400AB2ABA /* LaunchScreen.storyboard */,
-				07B8CE8229FEEE1400AB2ABA /* Info.plist */,
+				07C8A04C2A01709A00CCE690 /* App */,
+				07C8A04D2A0170A800CCE690 /* ViewControllers */,
+				07C8A0512A0170C500CCE690 /* Services */,
+				07C8A0522A0170CF00CCE690 /* Views */,
+				07C8A04E2A0170B000CCE690 /* Models */,
+				07C8A04F2A0170B600CCE690 /* Storyboards */,
+				07C8A0502A0170BC00CCE690 /* Resources */,
 			);
 			path = AlmostGIPHY;
+			sourceTree = "<group>";
+		};
+		07C8A04C2A01709A00CCE690 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */,
+				07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */,
+				07B8CE8229FEEE1400AB2ABA /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		07C8A04D2A0170A800CCE690 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */,
+				073E4D242A004D5800124D9F /* GifDetailsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		07C8A04E2A0170B000CCE690 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE8C29FEFC1E00AB2ABA /* Gifs.swift */,
+				07B8CE8829FEF54000AB2ABA /* GiphyResponseData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07C8A04F2A0170B600CCE690 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE7A29FEEE1300AB2ABA /* Main.storyboard */,
+				07B8CE7F29FEEE1400AB2ABA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		07C8A0502A0170BC00CCE690 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE7D29FEEE1400AB2ABA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07C8A0512A0170C500CCE690 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE8A29FEFA2100AB2ABA /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		07C8A0522A0170CF00CCE690 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07B8CE9429FF156B00AB2ABA /* GifCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
