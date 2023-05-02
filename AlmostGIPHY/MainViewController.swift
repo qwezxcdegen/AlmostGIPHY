@@ -8,7 +8,7 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     // MARK: - IB Outlets
     @IBOutlet private var collectionView: UICollectionView!

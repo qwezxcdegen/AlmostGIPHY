@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     let apiKey = "XQMCtCywjo6FEw8m9yftOBxIZP87Dn98"
     func fetchTrendingGifsData(offset: Int, completionHandler: @escaping (Gifs) -> Void) {
