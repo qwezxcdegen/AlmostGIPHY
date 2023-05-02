@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if gifs.count - indexPath.item == 17 {
+        if gifs.count - indexPath.item == 22 {
             fetchTrendingGifs()
         }
     }
@@ -90,7 +90,8 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
 private extension MainViewController {
     
     func updateSnapshot() {
-        snapshot.appendItems(gifs)
+        let _gifs = gifs[gifs.count - 25...gifs.count - 1]
+        snapshot.appendItems(Array(_gifs))
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
