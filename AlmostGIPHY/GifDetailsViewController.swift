@@ -11,6 +11,8 @@ import SwiftyGif
 final class GifDetailsViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
+    
+    
     var gif: Gif!
     
     
@@ -18,6 +20,8 @@ final class GifDetailsViewController: UIViewController {
         super.viewDidLoad()
         if let url = gif.fullGifUrl, let url = URL(string: url) {
             imageView.setGifFromURL(url)
+        } else {
+            imageView.image = UIImage(systemName: "exclamationmark.icloud.fill")
         }
     }
     

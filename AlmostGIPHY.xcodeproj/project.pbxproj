@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		073E4D252A004D5800124D9F /* GifDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E4D242A004D5800124D9F /* GifDetailsViewController.swift */; };
-		073E4D292A00670F00124D9F /* UIActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E4D282A00670F00124D9F /* UIActivities.swift */; };
 		07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */; };
 		07B8CE7729FEEE1300AB2ABA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */; };
 		07B8CE7929FEEE1300AB2ABA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		073E4D242A004D5800124D9F /* GifDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailsViewController.swift; sourceTree = "<group>"; };
-		073E4D282A00670F00124D9F /* UIActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivities.swift; sourceTree = "<group>"; };
 		07B8CE7129FEEE1300AB2ABA /* AlmostGIPHY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlmostGIPHY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */,
 				07B8CE7829FEEE1300AB2ABA /* MainViewController.swift */,
 				073E4D242A004D5800124D9F /* GifDetailsViewController.swift */,
-				073E4D282A00670F00124D9F /* UIActivities.swift */,
 				07B8CE8A29FEFA2100AB2ABA /* NetworkManager.swift */,
 				07B8CE9429FF156B00AB2ABA /* GifCollectionViewCell.swift */,
 				07B8CE8C29FEFC1E00AB2ABA /* Gifs.swift */,
@@ -174,7 +171,6 @@
 			files = (
 				07B8CE8929FEF54000AB2ABA /* GiphyResponseData.swift in Sources */,
 				07B8CE7929FEEE1300AB2ABA /* MainViewController.swift in Sources */,
-				073E4D292A00670F00124D9F /* UIActivities.swift in Sources */,
 				07B8CE8B29FEFA2100AB2ABA /* NetworkManager.swift in Sources */,
 				07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */,
 				073E4D252A004D5800124D9F /* GifDetailsViewController.swift in Sources */,
