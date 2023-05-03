@@ -27,6 +27,8 @@ struct GifData: Codable {
     }
 }
 
+// TODO: - Comments
+// Везде парсинг идет через строки, так делать не нужно
 // MARK: - Images
 struct Images: Codable {
     let original: FixedHeight
@@ -91,9 +93,10 @@ struct The4_K: Codable {
     }
 }
 
+// TODO: - Comments
 // MARK: - FixedHeight
 struct FixedHeight: Codable {
-    let height, width, size: String?
+    let height, width, size: String? // Почему это всё строки? Нужно сделать подходящие типы
     let url: String?
     let mp4Size: String?
     let mp4: String?

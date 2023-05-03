@@ -13,6 +13,11 @@ struct Gifs {
     
     init?(giphyResponseData: GiphyResponseData) {
         gifs = giphyResponseData.data.map { Gif(url: $0.images.fixedWidth.url, width: $0.images.fixedWidth.width, height: $0.images.fixedWidth.height, fullGifUrl: $0.images.original.url) }
+        
+        // TODO: - Comments
+        // Думаю, что у Images можно написать вычисляемое свойство, которое будет
+        // само создавать и отдавать Gif
+        // Структура не должна называться множественным числом Images
     }
 }
 

@@ -8,10 +8,11 @@
 import UIKit
 import SwiftyGif
 
+// TODO: - Comments
 final class GifDetailsViewController: UIViewController {
 
     // MARK: - IB Outlets
-    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView! // weak
     
     // MARK: - Public Properties
     var gif: Gif!
@@ -58,6 +59,7 @@ private extension GifDetailsViewController {
             self.dismiss(animated: true)
         }
     }
+    // Лучше вынести в расширение UIViewController чтобы везде можно было показывать
     
     // Activity VC
     func presentActivityVC() {

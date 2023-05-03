@@ -7,8 +7,10 @@
 
 import UIKit
 
+// TODO: - Comments
 final class NetworkManager {
     static let shared = NetworkManager()
+    // Ключ и урлы лучшк вынести в отдельный Constants файл
     let apiKey = "XQMCtCywjo6FEw8m9yftOBxIZP87Dn98"
     func fetchTrendingGifsData(offset: Int, completionHandler: @escaping (Gifs) -> Void) {
         guard let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=\(apiKey)&limit=25&offset=\(offset)&rating=g") else {

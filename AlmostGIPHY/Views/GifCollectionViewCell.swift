@@ -11,9 +11,10 @@ import ShimmerSwift
 
 final class GifCollectionViewCell: UICollectionViewCell {
     
+    // TODO: - Comments
     // MARK: - IB Outlets
-    @IBOutlet private var imageView: UIImageView!
-    @IBOutlet private var loaderView: UIView!
+    @IBOutlet private var imageView: UIImageView! // weak
+    @IBOutlet private var loaderView: UIView! // weak
     
     // MARK: - Private Properties
     private var gifUrlSession: URLSessionDataTask?
@@ -23,19 +24,26 @@ final class GifCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         gifUrlSession?.cancel()
-        shimmeringView?.contentView = UIView()
+        // TODO: - Comments
+        shimmeringView?.contentView = UIView() // Просто останови анимацию
     }
     
     // MARK: - Public Methods
     func configure(withData data: Gif) {
         guard let url = data.url, let url = URL(string: url) else { return }
         shimmeringView?.contentView = UIView()
-        loaderView.backgroundColor = getRandomColor()
+        // TODO: - Comments
+        loaderView.backgroundColor = getRandomColor() // Лучше вынести в расширение UIColor
         
+        // Не нужно создавать эту вьюху постоянно, память протечет сильно
+        // Она должна быть в единственном экземпляре и реюзаться
+        // Закрепи ее с помощью констрэйнтов, чтобы не задавать вручную размер
         shimmeringView = ShimmeringView(frame: CGRect(x: 0, y: 0, width: data.widthInt, height: data.heightInt))
         shimmeringView?.backgroundColor = .white
         shimmeringView?.contentView = loaderView
         shimmeringView?.isShimmering = true
+        
+        // Ты и так знаешь, что вьюха существует, проверка лишняя
         if let shimmeringView {
             contentView.addSubview(shimmeringView)
             contentView.addSubview(imageView)
