@@ -9,9 +9,9 @@ import UIKit
 import SwiftyGif
 
 final class GifDetailsViewController: UIViewController {
-
+    
     // MARK: - IB Outlets
-    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Public Properties
     var gif: Gif!
@@ -50,15 +50,6 @@ final class GifDetailsViewController: UIViewController {
 
 // MARK: - Private Methods
 private extension GifDetailsViewController {
-    
-    // Alert VC
-    func presentDisappearableAlert(withTitle title: String) {
-        let ac = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        present(ac, animated: true) { [unowned self] in
-            self.dismiss(animated: true)
-        }
-    }
-    
     // Activity VC
     func presentActivityVC() {
         guard let image = imageView.gifImage, let data = image.imageData else {

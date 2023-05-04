@@ -9,9 +9,8 @@ import UIKit
 
 final class NetworkManager {
     static let shared = NetworkManager()
-    let apiKey = "XQMCtCywjo6FEw8m9yftOBxIZP87Dn98"
     func fetchTrendingGifsData(offset: Int, completionHandler: @escaping (Gifs) -> Void) {
-        guard let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=\(apiKey)&limit=25&offset=\(offset)&rating=g") else {
+        guard let url = URL(string: url + String(offset)) else {
             return
         }
         print(url)

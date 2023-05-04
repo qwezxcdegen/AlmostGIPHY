@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073E35092A03F4C6000C8C8F /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E35082A03F4C6000C8C8F /* UIColor + Extension.swift */; };
+		073E350B2A03F7E9000C8C8F /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E350A2A03F7E9000C8C8F /* UIViewController + Extension.swift */; };
+		073E350D2A03F9C5000C8C8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E350C2A03F9C5000C8C8F /* Constants.swift */; };
 		073E4D252A004D5800124D9F /* GifDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E4D242A004D5800124D9F /* GifDetailsViewController.swift */; };
 		07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */; };
 		07B8CE7729FEEE1300AB2ABA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8CE7629FEEE1300AB2ABA /* SceneDelegate.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		073E35082A03F4C6000C8C8F /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		073E350A2A03F7E9000C8C8F /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		073E350C2A03F9C5000C8C8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		073E4D242A004D5800124D9F /* GifDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailsViewController.swift; sourceTree = "<group>"; };
 		07B8CE7129FEEE1300AB2ABA /* AlmostGIPHY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlmostGIPHY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B8CE7429FEEE1300AB2ABA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073E35072A03F4B3000C8C8F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				073E35082A03F4C6000C8C8F /* UIColor + Extension.swift */,
+				073E350A2A03F7E9000C8C8F /* UIViewController + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		07B8CE6829FEEE1300AB2ABA = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +87,7 @@
 		07B8CE7329FEEE1300AB2ABA /* AlmostGIPHY */ = {
 			isa = PBXGroup;
 			children = (
+				073E35072A03F4B3000C8C8F /* Extensions */,
 				07C8A04C2A01709A00CCE690 /* App */,
 				07C8A04D2A0170A800CCE690 /* ViewControllers */,
 				07C8A0512A0170C500CCE690 /* Services */,
@@ -124,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				07B8CE7D29FEEE1400AB2ABA /* Assets.xcassets */,
+				073E350C2A03F9C5000C8C8F /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -225,8 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073E35092A03F4C6000C8C8F /* UIColor + Extension.swift in Sources */,
+				073E350D2A03F9C5000C8C8F /* Constants.swift in Sources */,
 				07B8CE8929FEF54000AB2ABA /* GiphyResponseData.swift in Sources */,
 				07B8CE7929FEEE1300AB2ABA /* MainViewController.swift in Sources */,
+				073E350B2A03F7E9000C8C8F /* UIViewController + Extension.swift in Sources */,
 				07B8CE8B29FEFA2100AB2ABA /* NetworkManager.swift in Sources */,
 				07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */,
 				073E4D252A004D5800124D9F /* GifDetailsViewController.swift in Sources */,

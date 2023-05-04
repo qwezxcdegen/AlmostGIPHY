@@ -35,6 +35,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXG-xV-LY9" customClass="ShimmeringView" customModule="ShimmerSwift">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAc-mh-9Xh">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,18 +49,23 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yM5-kG-uA0" firstAttribute="leading" secondItem="QTB-iV-t2G" secondAttribute="leading" id="0EO-5V-Re1"/>
+                                                <constraint firstAttribute="trailing" secondItem="TXG-xV-LY9" secondAttribute="trailing" id="1Uh-8b-RX0"/>
                                                 <constraint firstItem="WAc-mh-9Xh" firstAttribute="top" secondItem="QTB-iV-t2G" secondAttribute="top" id="7u9-f6-QNv"/>
+                                                <constraint firstItem="TXG-xV-LY9" firstAttribute="leading" secondItem="QTB-iV-t2G" secondAttribute="leading" id="BZh-5w-ZcV"/>
                                                 <constraint firstAttribute="bottom" secondItem="WAc-mh-9Xh" secondAttribute="bottom" id="NYC-PS-Kic"/>
                                                 <constraint firstAttribute="trailing" secondItem="WAc-mh-9Xh" secondAttribute="trailing" id="TCo-8T-vno"/>
+                                                <constraint firstAttribute="bottom" secondItem="TXG-xV-LY9" secondAttribute="bottom" id="bku-Bd-3Ln"/>
                                                 <constraint firstAttribute="bottom" secondItem="yM5-kG-uA0" secondAttribute="bottom" id="fja-zm-bBL"/>
                                                 <constraint firstItem="yM5-kG-uA0" firstAttribute="top" secondItem="QTB-iV-t2G" secondAttribute="top" id="gOB-Sa-H7f"/>
                                                 <constraint firstItem="WAc-mh-9Xh" firstAttribute="leading" secondItem="QTB-iV-t2G" secondAttribute="leading" id="jNp-gq-Ajn"/>
                                                 <constraint firstAttribute="trailing" secondItem="yM5-kG-uA0" secondAttribute="trailing" id="vXY-Cu-8vb"/>
+                                                <constraint firstItem="TXG-xV-LY9" firstAttribute="top" secondItem="QTB-iV-t2G" secondAttribute="top" id="xLW-Md-8Hh"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="yM5-kG-uA0" id="bBv-o2-4gp"/>
                                             <outlet property="loaderView" destination="WAc-mh-9Xh" id="F6V-6L-Kqx"/>
+                                            <outlet property="shimmeringView" destination="TXG-xV-LY9" id="L2X-0u-OpI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
