@@ -17,7 +17,13 @@ final class MainViewController: UIViewController {
     private let networkManager = NetworkManager.shared
     private var gifs: [Gif] = []
     private var offset = -25
-    private var snapshot = NSDiffableDataSourceSnapshot<String, Gif>()
+    private var snapshot = NSDiffableDataSourceSnapshot<String, Gif>() {
+        didSet {
+            DispatchQueue.main.async { [unowned self] in
+                dataSource.apply(snapshot)
+            }
+        }
+    }
     
     private lazy var dataSource = UICollectionViewDiffableDataSource<String, Gif>(collectionView: collectionView) { collectionView, indexPath, item in
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GifCollectionViewCell else { return UICollectionViewCell() }
@@ -34,7 +40,7 @@ final class MainViewController: UIViewController {
         collectionView.delegate = self
         
         snapshot.appendSections(["Gifs"])
-        dataSource.apply(snapshot)
+        snapshot.appendSections(["Categories"])
         
         let layout = CHTCollectionViewWaterfallLayout()
         layout.minimumColumnSpacing = 5
@@ -88,20 +94,13 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
 
 // MARK: - Private Methods
 private extension MainViewController {
-    
-    func updateSnapshot() {
-        let _gifs = gifs[gifs.count - 25...gifs.count - 1]
-        snapshot.appendItems(Array(_gifs))
-        dataSource.apply(snapshot, animatingDifferences: false)
-    }
-    
     func fetchTrendingGifs() {
         offset += 25
-        networkManager.fetchTrendingGifsData(offset: offset) { [weak self] gifsData in
-            gifsData.gifs.forEach { self?.gifs.append($0) }
-            DispatchQueue.main.async { [weak self] in
-                self?.updateSnapshot()
+        networkManager.fetchTrendingGifsData(offset: offset) { [unowned self] gifsData in
+            gifsData.gifs.forEach {
+                gifs.append($0)
             }
+            snapshot.appendItems(gifsData.gifs, toSection: "Gifs")
         }
     }
 }
