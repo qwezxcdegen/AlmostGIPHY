@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072B0F772A0FBA5000054197 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072B0F762A0FBA5000054197 /* CategoryCollectionViewCell.swift */; };
 		073E35092A03F4C6000C8C8F /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E35082A03F4C6000C8C8F /* UIColor + Extension.swift */; };
 		073E350B2A03F7E9000C8C8F /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E350A2A03F7E9000C8C8F /* UIViewController + Extension.swift */; };
 		073E350D2A03F9C5000C8C8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E350C2A03F9C5000C8C8F /* Constants.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072B0F762A0FBA5000054197 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		073E35082A03F4C6000C8C8F /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		073E350A2A03F7E9000C8C8F /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		073E350C2A03F9C5000C8C8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				07B8CE9429FF156B00AB2ABA /* GifCollectionViewCell.swift */,
+				072B0F762A0FBA5000054197 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				073E350D2A03F9C5000C8C8F /* Constants.swift in Sources */,
 				07B8CE8929FEF54000AB2ABA /* GiphyResponseData.swift in Sources */,
 				07B8CE7929FEEE1300AB2ABA /* MainViewController.swift in Sources */,
+				072B0F772A0FBA5000054197 /* CategoryCollectionViewCell.swift in Sources */,
 				073E350B2A03F7E9000C8C8F /* UIViewController + Extension.swift in Sources */,
 				07B8CE8B29FEFA2100AB2ABA /* NetworkManager.swift in Sources */,
 				07B8CE7529FEEE1300AB2ABA /* AppDelegate.swift in Sources */,
