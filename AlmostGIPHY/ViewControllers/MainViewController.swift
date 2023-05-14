@@ -15,52 +15,58 @@ final class MainViewController: UIViewController {
     
     // MARK: - Private Properties
     private let networkManager = NetworkManager.shared
-    private var gifs: [Gif] = []
-    private var offset = -25
-    private var snapshot = NSDiffableDataSourceSnapshot<String, Gif>() {
+    private var gifs: [Gif] = [] {
         didSet {
             DispatchQueue.main.async { [unowned self] in
-                dataSource.apply(snapshot)
+                collectionView.reloadData()
             }
         }
     }
-    
-    private lazy var dataSource = UICollectionViewDiffableDataSource<String, Gif>(collectionView: collectionView) { collectionView, indexPath, item in
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GifCollectionViewCell {
-            cell.configure(withData: item)
-            
-            return cell
-            
-        } else if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell {
-            
-            cell.configure(withData: "TEST")
-            
-            return cell
-        } else {
-            return UICollectionViewCell()
-        }
-        
-        
-    }
+    private var offset = -25
+    //    private var snapshot = NSDiffableDataSourceSnapshot<String, Gif>() {
+    //        didSet {
+    //            DispatchQueue.main.async { [unowned self] in
+    //                dataSource.apply(snapshot)
+    //            }
+    //        }
+    //    }
+    //
+    //    private lazy var dataSource = UICollectionViewDiffableDataSource<String, Gif>(collectionView: collectionView) { collectionView, indexPath, item in
+    //        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GifCollectionViewCell {
+    //            cell.configure(withData: item)
+    //
+    //            return cell
+    //
+    //        } else if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell {
+    //
+    //            cell.configure(withData: "TEST")
+    //
+    //            return cell
+    //        } else {
+    //            return UICollectionViewCell()
+    //        }
+    //
+    //
+    //    }
     
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
+        collectionView.dataSource = self
+        //        snapshot.appendSections(["Categories", "Gifs"])
+        //        snapshot.appendItems([Gif(url: "nil", width: "100", height: "100", fullGifUrl: "nil")], toSection: "Categories")
+        //        snapshot.appendItems([Gif(url: "nil", width: "200", height: "500", fullGifUrl: "nil")], toSection: "Categories")
+        //        snapshot.appendItems([Gif(url: "nil", width: "200", height: "100", fullGifUrl: "nil")], toSection: "Categories")
+        //        snapshot.appendItems([Gif(url: "nil", width: "200", height: "400", fullGifUrl: "nil")], toSection: "Categories")
+        //        dataSource.apply(snapshot)
         
-        snapshot.appendSections(["Categories", "Gifs"])
-        snapshot.appendItems([Gif(url: "nil", width: "100", height: "100", fullGifUrl: "nil")], toSection: "Categories")
-        snapshot.appendItems([Gif(url: "nil", width: "200", height: "500", fullGifUrl: "nil")], toSection: "Categories")
-        snapshot.appendItems([Gif(url: "nil", width: "200", height: "100", fullGifUrl: "nil")], toSection: "Categories")
-        snapshot.appendItems([Gif(url: "nil", width: "200", height: "400", fullGifUrl: "nil")], toSection: "Categories")
-        dataSource.apply(snapshot)
-        
-//        let layout = CHTCollectionViewWaterfallLayout()
-//        layout.minimumColumnSpacing = 5
-//        layout.minimumInteritemSpacing = 5
-//        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-//        collectionView.collectionViewLayout = layout
+        //        let layout = CHTCollectionViewWaterfallLayout()
+        //        layout.minimumColumnSpacing = 5
+        //        layout.minimumInteritemSpacing = 5
+        //        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        //        collectionView.collectionViewLayout = layout
         
         let layout = createCompositionalLayout()
         collectionView.collectionViewLayout = layout
@@ -82,7 +88,39 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegate
-extension MainViewController: UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch section {
+        case 0: return 15
+        case 1: return gifs.count
+        default: return 0
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GifCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+                        cell.configure(withData: gifs[indexPath.row])
+            
+            return cell
+        } else if indexPath.section == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(withData: "TEST")
+            return cell
+        } else {
+            return UICollectionViewCell()
+        }
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if gifs.count - indexPath.item == 22 {
@@ -97,11 +135,11 @@ extension MainViewController: UICollectionViewDelegate {
 
 // MARK: - CHTCollectionViewDelegateWaterfallLayout
 //extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
 //        2
 //    }
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let width = collectionViewLayout.collectionViewContentSize.width
 //        let height = Double(gifs[indexPath.item].heightInt) / Double(gifs[indexPath.item].widthInt) * Double(width)
@@ -114,21 +152,18 @@ private extension MainViewController {
     func fetchTrendingGifs() {
         offset += 25
         networkManager.fetchTrendingGifsData(offset: offset) { [unowned self] gifsData in
-            gifsData.gifs.forEach {
-                gifs.append($0)
-            }
-            snapshot.appendItems(gifsData.gifs, toSection: "Gifs")
+            gifs.append(contentsOf: gifsData.gifs)
+            
+            //                snapshot.appendItems(gifsData.gifs, toSection: "Gifs")
         }
     }
     
     func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
-            let sections = ["Categories", "Gifs"]
-            let section = sections[sectionIndex]
-            switch section {
-            case "Categories": return self.createCategoriesSection()
-            case "Gifs": return self.createGifsSection()
-            default: return self.createGifsSection()
+            switch sectionIndex {
+            case 0: return self.createCategoriesSection()
+            case 1: return self.createGifsSection()
+            default: return self.createCategoriesSection()
             }
         }
         return layout
@@ -142,10 +177,11 @@ private extension MainViewController {
         return section
     }
     func createCategoriesSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .estimated(60))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(30), heightDimension: .estimated(30))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: itemSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
         return section
     }
 }
