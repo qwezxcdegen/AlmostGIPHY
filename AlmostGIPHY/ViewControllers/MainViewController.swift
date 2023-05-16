@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import CHTCollectionViewWaterfallLayout
+//import CHTCollectionViewWaterfallLayout
+import Niagara
 
 final class MainViewController: UIViewController {
     
@@ -33,21 +34,28 @@ final class MainViewController: UIViewController {
         return cell
     }
     
+    private var indexPathes: [IndexPath] = []
+    
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
-        
+        collectionView.dataSource = dataSource
+//        snapshot.appendSections(["Categories"])
         snapshot.appendSections(["Gifs"])
-        snapshot.appendSections(["Categories"])
         
-        let layout = CHTCollectionViewWaterfallLayout()
-        layout.minimumColumnSpacing = 5
-        layout.minimumInteritemSpacing = 5
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//        let layout = CHTCollectionViewWaterfallLayout()
+//        layout.minimumColumnSpacing = 5
+//        layout.minimumInteritemSpacing = 5
+//        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//        collectionView.collectionViewLayout = layout
+        
+        let layout = UICollectionViewCompositionalLayout.waterfall(columnCount: 2, spacing: 0, contentInsetsReference: .safeArea) { indexPath in
+            self.gifs[indexPath.item].size
+        }
+        
         collectionView.collectionViewLayout = layout
-        
         fetchTrendingGifs()
     }
     
@@ -79,18 +87,18 @@ extension MainViewController: UICollectionViewDelegate {
 }
 
 // MARK: - CHTCollectionViewDelegateWaterfallLayout
-extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
-        2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionViewLayout.collectionViewContentSize.width
-        let height = Double(gifs[indexPath.item].heightInt) / Double(gifs[indexPath.item].widthInt) * Double(width)
-        return CGSize(width: width, height: height)
-    }
-}
+//extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
+//        2
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = collectionViewLayout.collectionViewContentSize.width
+//        let height = Double(gifs[indexPath.item].heightInt) / Double(gifs[indexPath.item].widthInt) * Double(width)
+//        return CGSize(width: width, height: height)
+//    }
+//}
 
 // MARK: - Private Methods
 private extension MainViewController {

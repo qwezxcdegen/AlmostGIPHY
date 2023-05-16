@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "niagara",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lucamegh/Niagara",
+      "state" : {
+        "revision" : "df95dc0e470632b97ab91568ea48793f7559ea61",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "shimmerswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/BeauNouvelle/ShimmerSwift.git",

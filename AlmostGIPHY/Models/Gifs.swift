@@ -32,4 +32,9 @@ struct Gif: Hashable {
         guard let height, let height = Int(height) else { return 0 }
         return height
     }
+    
+    var size: CGSize {
+        CGSize(width: widthInt, height: heightInt)
+    }
+    
 }
